@@ -29,11 +29,13 @@ stages:
     params:
     - estimators.ElasticNet.params.alpha
     - estimators.ElasticNet.params.li_ratio
+    
     metrics:
     - reports/scores.json
-      cache: false
+      cache:false
     - reports/params.json
-      cache: false    
+      cache:false    
+    
     outs:
     - models/model.joblib
     
