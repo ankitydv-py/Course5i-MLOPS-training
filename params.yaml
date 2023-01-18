@@ -1,13 +1,13 @@
 base:
   project: mlops-insurance
-  random_state: 42
-  target_col: chargers
+  random_state: 20
+  target_col: charges
 
 data_source:
-  s3_source: source_code/insurance_course5i.csv  # local_source
+  s3_source: source_code/insurance_course5i.csv
 
 load_data:
-  raw_dataset_csv: data/raw/insurance_course5i.csv # load data from local
+  raw_dataset_csv: data/raw/insurance_course5i.csv
 
 split_data:
   train_path: data/processed/train_insurance_course5i.csv
@@ -17,14 +17,20 @@ split_data:
 estimators:
   ElasticNet:
     params:
-      alpha: 0.9
-      li_ratio: 0.4
+      alpha: 0.8
+      l1_ratio: 0.7
 
 model_dir: models
 
-reprts: 
+reports :
   params: reports/params.json
   scores: reports/scores.json
-  
+
 webapp_model_dir: prediction_service/model/model.joblib
 
+mlflow_config:
+  artifacts_dir: artifacts
+  experiment_name: ElasticNet_Expense
+  run_name: mlops
+  registered_model_name: ElasticNetMedicalExpenses
+  remote_server_uri: http://127.0.0.1:5000
