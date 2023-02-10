@@ -14,15 +14,15 @@ split_data:
   test_path: data/processed/test_insurance_course5i.csv
   test_size: 0.2
 
-estimators:
+estimators: # model algorithm parameters
   ElasticNet:
     params:
       alpha: 0.8
       l1_ratio: 0.7
 
-model_dir: models
+model_dir: models # repo to save model
 
-reports :
+reports : # reports migrtaed incase of testing/validation
   params: reports/params.json
   scores: reports/scores.json
 
@@ -34,3 +34,8 @@ mlflow_config:
   run_name: mlops
   registered_model_name: ElasticNetMedicalExpenses
   remote_server_uri: http://127.0.0.1:5000
+
+
+
+
+  # mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 127.0.0.1 -p 5000

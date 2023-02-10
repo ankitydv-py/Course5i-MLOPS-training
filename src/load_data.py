@@ -1,13 +1,13 @@
 import yaml
 import pandas as pd
 import argparse
-from pkgutil import get_data
-from get_data import get_data, read_params
+from pkgutil import get_data # default method
+from get_data import get_data, read_params # from file get_data.py
 
 def load_and_save(config_path):
     config=read_params(config_path)
     df = get_data(config_path)
-    new_cols=[col.replace (" ","_") for col in df.columns]
+    new_cols=[col.replace (" ","_") for col in df.columns] # just in case
     #print(new_cols)
     raw_data_path = config["load_data"]["raw_dataset_csv"]
     df.to_csv(raw_data_path, sep=",", index=False, header=new_cols)
@@ -19,3 +19,7 @@ if __name__=="__main__":
     args.add_argument("--config", default="params.yaml")
     parsed_args=args.parse_args()
     load_and_save(config_path=parsed_args.config)
+
+
+
+# python .\src\load.py

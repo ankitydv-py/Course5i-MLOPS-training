@@ -1,7 +1,7 @@
-stages:
+stages: # stages as per the flow
   load_data:
-    cmd: python src/load_data.py --config=params.yaml
-    deps:
+    cmd: python src/load_data.py --config=params.yaml # command to fetch the data
+    deps: # dependecies
     - src/get_data.py
     - src/load_data.py
     - source_code/insurance_course5i.csv
