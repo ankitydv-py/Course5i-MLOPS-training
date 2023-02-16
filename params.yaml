@@ -14,15 +14,15 @@ split_data:
   test_path: data/processed/test_insurance_course5i.csv
   test_size: 0.2
 
-estimators: # model algorithm parameters
+estimators:
   ElasticNet:
     params:
-      alpha: 0.50
-      l1_ratio: 0.85
+      alpha: 0.7
+      l1_ratio: 0.8
 
-model_dir: models # repo to save model
+model_dir: models
 
-reports : # reports migrtaed incase of testing/validation
+reports :
   params: reports/params.json
   scores: reports/scores.json
 
@@ -30,7 +30,7 @@ webapp_model_dir: prediction_service/model/model.joblib
 
 mlflow_config:
   artifacts_dir: artifacts
-  experiment_name: ElasticNet_Expense
+  experiment_name: ElasticNet_Expenses_course5i
   run_name: mlops
   registered_model_name: ElasticNetMedicalExpenses
   remote_server_uri: http://127.0.0.1:5000

@@ -1,7 +1,7 @@
-stages: # stages as per the flow
+stages:
   load_data:
-    cmd: python src/load_data.py --config=params.yaml # command to fetch the data
-    deps: # dependecies
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
     - src/get_data.py
     - src/load_data.py
     - source_code/insurance_course5i.csv
@@ -32,11 +32,11 @@ stages: # stages as per the flow
 
     #metrics:
     #- reports/scores.json
-      #cache: false
+    #  cache: false
     #- reports/params.json
-      #cache: false
-    #outs:
-    #- models/model.joblib
+    #  cache: false
+    # outs:
+    # - models/model.joblib
 
   log_production_model:
     cmd: python src/log_production_model.py --config=params.yaml
